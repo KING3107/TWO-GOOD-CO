@@ -1,0 +1,467 @@
+@font-face {
+    font-family: Futura;
+    src: url(./Futura-Bold.ttf);
+}
+@font-face {
+    font-family: Gilroy;
+    src: url(./Gilroy-Medium.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+
+*::selection {
+    color: #fff;
+    background-color: #000;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #F7F7F7;
+}
+
+#nav {
+    /* height: 100px; */
+    width: 100%;
+    /* background-color: burlywood; */
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+#nav #nav-part2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+#links {
+    padding: 10px;
+}
+
+#nav-part1 {
+    /* background-color: RED; */
+    height: 82px;
+    overflow: hidden;
+}
+
+#nav-part1 svg {
+    display: block;
+}
+
+#nav-part2 #links a {
+    text-transform: uppercase;
+
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0 20px;
+}
+
+#icons {
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #F7F7F7;
+}
+
+#nav-part2 #icons i {
+    font-size: 18px;
+    margin: 0 20px;
+    font-weight: 100;
+}
+
+#cursor {
+    height: 180px;
+    width: 180px;
+    background-color: rgba(224, 139, 189, 0.814);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%) scale(0);
+
+}
+
+/* ================= CURSOR ================= */
+
+#cursor {
+    height: 180px;
+    width: 180px;
+    background-color: rgba(224, 139, 189, 0.814);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+/* ================= PAGE 1 ================= */
+
+#page1 {
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 1vw;
+    padding-top: 20vh;
+    position: relative;
+}
+
+#page1 h1 {
+    font-size: 15.8vw;
+    text-transform: uppercase;
+    font-family: futura;
+    line-height: 14vw;
+    letter-spacing: -8px;
+}
+
+#video-container {
+    height: 100vh;
+    width: 100%;
+    margin-top: 1vw;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#video-container video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#video-container #play {
+    padding: 3vw 2.2vw;
+    background-color: black;
+    color: #fff;
+    font-size: 1.3vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-family: futura;
+    border-radius: 50%;
+    opacity: 0;
+    scale: 0;
+}
+
+/* ================= PAGE 2 ================= */
+
+#page2 {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3vw 1vw;
+}
+
+/* cards */
+#page2 .elem {
+    height: 100vh;
+    width: 31%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+/* images */
+#page2 .elem img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+    transition: transform 0.7s ease;
+}
+
+/* hover zoom */
+#page2 .elem:hover img {
+    transform: scale(1.06);
+}
+
+/* overlay */
+#page2 .elem::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+#page2 .elem:hover::after {
+    opacity: 1;
+}
+
+/* ================= BUTTON ================= */
+
+#page2 .elem .dets {
+    height: 60px;
+    width: 65%;
+
+    border-radius: 50px;
+
+    position: absolute;
+    z-index: 9;
+
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-family: futura;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition: all 0.5s ease;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* expand */
+#page2 .elem:hover .dets {
+    height: 200px;
+    width: 75%;
+    border-radius: 25px;
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+/* SHOP NOW text */
+#page2 .elem .dets::after {
+    content: "SHOP NOW";
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: 600;
+    transition: 0.4s ease;
+}
+
+/* move text up on hover */
+#page2 .elem:hover .dets::after {
+    top: 18%;
+}
+
+/* arrow */
+#page2 .elem .dets::before {
+    content: "›";
+
+    position: absolute;
+    right: 20px;
+
+    font-size: 22px;
+    transition: 0.4s ease;
+}
+
+#page2 .elem:hover .dets::before {
+    transform: translateX(6px);
+}
+
+/* ================= IMAGES INSIDE BUTTON ================= */
+
+.dets-images {
+    display: flex;
+    gap: 10px;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+#page2 .elem:hover .dets-images {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.dets-images img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ================= PAGE 3 ================= */
+
+#page3 {
+    min-height: 120vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.child {
+    height: 54vh;
+    width: 38vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.child img {
+    height: 100%;
+}
+
+@media (max-width:600px) {
+
+    #nav {
+        /* height: 100px; */
+        width: 100%;
+        /* background-color: burlywood; */
+        position: fixed;
+        z-index: 99;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    #nav #nav-part2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    #links {
+        padding: 10px;
+        display: none;
+    }
+
+    #nav-part1 {
+        /* background-color: RED; */
+        height: 67px;
+        overflow: hidden;
+    }
+
+    #nav-part1 svg {
+        display: block;
+        height: 67px;
+        width: 80px;
+    }
+    #nav #twogoodlogo{
+        height: 40px;
+        margin-left: -20px;
+    }
+
+    #icons {
+        padding: 7px;
+        border-radius: 50px;
+        background-color: #F7F7F7;
+    }
+
+    #nav-part2 #icons i {
+        font-size: 15px;
+        margin: 0 20px;
+        font-weight: 100;
+    }
+
+    #page1 {
+        /* background-color: red; */
+        min-height: 70vh;
+        width: 100%;
+        padding: 0 3vw;
+        padding-top: 25vh;
+
+    }
+
+    #page1 h1 {
+        font-size: 15.5vw;
+        letter-spacing: -3px;
+    }
+
+    #video-container {
+        height: 25vh;
+        margin-top: 3vw;
+    }
+
+    #video-container #play {
+        padding: 9.5vw 7.2vw;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+        scale: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    #page2 {
+        min-height: 100vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 5vw 3vw;
+        flex-direction: column;
+        justify-content: space-between;
+        /* background-color: red; */
+    }
+
+    #page2 .elem {
+        height: 100vh;
+        width: 100%;
+        /* background-color: red; */
+        overflow: hidden;
+        margin-bottom: 3vw;
+    }
+
+    #page2 .elem .dets {
+        height: 40px;
+        border-radius: 50px;
+        width: 70%;
+        position: absolute;
+        z-index: 9;
+        background-color: rgb(229, 156, 186);
+
+    }
+
+    #page3 {
+        min-height: 120vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .child {
+        height: 54vh;
+        width: 88vw;
+        /* background-color: red; */
+        /* border: 2px solid #000; */
+        position: relative;
+        padding: 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .child img {
+        height: 100%;
+    }
+
+}
