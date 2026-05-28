@@ -54,13 +54,6 @@ Two Good Co. website.
 --------------------------------------------------
 
 
-FUTURE ENHANCEMENTS
-
-1]Add more pages and complete the website
-2]Be more precise in responsiveness
-3]Work more on animations,java script,js libraries
-4]Try to clone it perfectly
---------------------------------------------------
 
 ACKNOWLEDGMENT
 
